@@ -1,11 +1,4 @@
-//button.addEventListener("click", function(){
-//  if (currentInput === '') {
-//    alert("Please enter your name");
 
-//  else {
-//    return initiate (currentInput);
-//  }
-//});
 var attemptNumber = 0;
 var attemptsLeft = 4;
 var secretWord = [];
@@ -18,7 +11,7 @@ var userAnswerString;
 var moreThanOneLetter = 0;
 var answer = false;
 var score = 0;
-//var newStr;
+
 
 var footballersData = [
   {
@@ -28,7 +21,7 @@ var footballersData = [
   },
   {
   name: 'david beckham' , 
-  description: 'I have received much following on and off the pitch. I even got married to a British celebrity. I started off playing for my boyhood club under Alex Ferguson. However after a spat, I moved to Real Madrid', 
+  description: 'I have received much fame on and off the pitch. I even got married to a British celebrity. I started off playing for my boyhood club under Alex Ferguson. However after a spat, I moved to Real Madrid', 
   imgSource: 'to be entered' 
   },
   {
@@ -95,13 +88,12 @@ document.querySelector('#input').addEventListener('change', function(event){
     }
   });   
 
-//console.log(footballersData);
 
 var initiate = function(currentInput) {
   var name = currentInput;
   gameState ++;
   yourName.innerHTML ="";
-  return "Hello \n" + name + " Are you ready to test your football knowledge?" + " You are to guess the name of a famous footballer based on the hints provided. You have 3 chances to guess the letter. Fret not, you are also given 3 bailout cards which will show you a photo of the player. (Delete the contents of the input bar and enter to proceed!"
+  return "Hello \n" + name + " Are you ready to test your football knowledge?" + " You are to guess the name of a famous footballer based on the hints provided. You have 3 chances to guess the letter. Fret not, you are also given 3 bailout cards which will show you a photo of the player. (Delete the contents of the input bar and enter to proceed!)"
 
 }
 var generateUserAnswer =function (foundIndex) {
@@ -131,7 +123,6 @@ var generateQueston = function() {
   secretWord = footballersData[randomIndex].name.split("");
   console.log(secretWord);
   gameState ++;
-  //userAnswer.length = secretWord.length;
   console.log(footballersData[randomIndex].description);
 
   return footballersData[randomIndex].description;
@@ -151,21 +142,6 @@ var checkWithInput = function(currentInput) {
   i = i + 1;
   }
   return answer;
- // for (var i = 0; i < secretWord.length; i++){
-   // if (secretWord[i] === currentInput) {
-     //  answer = true;
-       //guessedLetters.push(currentInput);
-       
-      //for (var j = i + 1; j < secretWord.length; j++) {
-        //if (secretWord[j] === currentInput) {
-        //moreThanOneLetter ++;
-        //guessedLetters.push(currentInput);
-      //}
-      //}
-    //return answer; 
-    //}
-    //answer = false;
-    return answer;
   }
   
   
@@ -197,3 +173,6 @@ var inputHappened = function(currentInput) {
   }
 }
 
+document.querySelector('#reset').addEventListener('click', function(event){
+window.location.reload();
+});
