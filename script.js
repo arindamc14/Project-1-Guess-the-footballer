@@ -17,6 +17,7 @@ var userAnswer = [];
 var userAnswerString; 
 var moreThanOneLetter = 0;
 var answer = false;
+var score = 0;
 //var newStr;
 
 var footballersData = [
@@ -99,7 +100,8 @@ document.querySelector('#input').addEventListener('change', function(event){
 var initiate = function(currentInput) {
   var name = currentInput;
   gameState ++;
-  return "Hello " + name + " Are you ready to test your football knowledge? You are to guess the name of a famous footballer based on the hints provided. You have 3 chances to guess the letter. Fret not, you are also given 3 bailout cards which will show you a photo of the player. (Delete the contents of the input bar and enter to proceed!"
+  yourName.innerHTML ="";
+  return "Hello \n" + name + " Are you ready to test your football knowledge?" + " You are to guess the name of a famous footballer based on the hints provided. You have 3 chances to guess the letter. Fret not, you are also given 3 bailout cards which will show you a photo of the player. (Delete the contents of the input bar and enter to proceed!"
 
 }
 var generateUserAnswer =function (foundIndex) {
@@ -142,6 +144,7 @@ var checkWithInput = function(currentInput) {
   while (i < secretWord.length) {
     if (secretWord[i] === currentInput) {
        answer = true;
+       score = score + 2;
        guessedLetters.push(currentInput);
        secretWord.splice(i,1);
     }
@@ -189,7 +192,8 @@ var inputHappened = function(currentInput) {
     return "Well done, you got it! Your next question is..."
   }
   else {
-    return "You guessed right! Guess the next letter \n" +  " Your progress: \n" + guessedLetters + "\n Attempts Left: " +attemptsLeft + "\n Your Score \n"  ;
+    return "You guessed right! Guess the next letter \n" +  " Your progress: \n" + guessedLetters + "\n Attempts Left: " +attemptsLeft + "\n Your Score:" + score;
 
   }
 }
+
