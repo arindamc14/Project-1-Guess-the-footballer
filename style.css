@@ -1,0 +1,16 @@
+body {
+	background-color: green;
+	text-align: center;
+}
+h2 {
+	padding: 10px;
+}
+div {
+	padding: auto;
+}
+#instruction {
+	padding: 10px;
+}
+#output {
+	padding: 10px;
+}
