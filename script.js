@@ -11,6 +11,8 @@ var userAnswerString;
 var moreThanOneLetter = 0;
 var answer = false;
 var score = 0;
+var newArray = [];
+
 
 
 var footballersData = [
@@ -124,6 +126,11 @@ var generateQueston = function() {
   console.log(secretWord);
   gameState ++;
   console.log(footballersData[randomIndex].description);
+  var j = 0;
+  while (j < secretWord.length) {
+    newArray[j] = ' ';
+    j ++;
+   }
 
   return footballersData[randomIndex].description;
 }
@@ -134,11 +141,14 @@ var checkWithInput = function(currentInput) {
   var i = 0;
   while (i < secretWord.length) {
     if (secretWord[i] === currentInput) {
+      console.log(i);
+      newArray[i] = secretWord[i]; 
        answer = true;
        score = score + 2;
        guessedLetters.push(currentInput);
        secretWord.splice(i,1);
     }
+  
   i = i + 1;
   }
   return answer;
